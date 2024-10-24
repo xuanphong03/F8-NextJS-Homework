@@ -11,6 +11,8 @@ export default function ProfilePage() {
   const { data, status } = useSession();
   const [profile, setProfile] = useState(null);
   const [providers, setProviders] = useState([]);
+  const [googleProfile, setGoogleProfile] = useState(null);
+  const [githubProfile, setGithubProfile] = useState(null);
 
   const getProfile = async () => {
     const response = await fetch("/api/getProfile");
@@ -36,10 +38,21 @@ export default function ProfilePage() {
   useState(() => {
     (async () => {
       const response = await getProfile();
-      const { profile, providers } = response?.success;
+      const {
+        profile,
+        providers,
+        google: googleProfile,
+        github: githubProfile,
+      } = response?.success;
       setProfile(profile);
       setProviders(providers);
       console.log("providers", providers);
+      if (providers.includes("github")) {
+        setGithubProfile(githubProfile);
+      }
+      if (providers.includes("google")) {
+        setGoogleProfile(googleProfile);
+      }
     })();
   }, []);
 
@@ -65,8 +78,8 @@ export default function ProfilePage() {
               >
                 {providers.includes("github") ? (
                   <div className="flex items-center gap-2">
-                    <Avatar size="sm" src={profile?.user?.image} />
-                    {profile?.user?.name}
+                    <Avatar size="sm" src={githubProfile?.avatar} />
+                    {githubProfile?.name}
                   </div>
                 ) : (
                   <div className="flex items-center gap-2">
@@ -82,8 +95,8 @@ export default function ProfilePage() {
               >
                 {providers.includes("google") ? (
                   <div className="flex items-center gap-2">
-                    <Avatar size="sm" src={profile?.user?.image} />
-                    {profile?.user?.name}
+                    <Avatar size="sm" src={googleProfile?.avatar} />
+                    {googleProfile?.name}
                   </div>
                 ) : (
                   <div className="flex items-center gap-2">

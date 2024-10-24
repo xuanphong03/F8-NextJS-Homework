@@ -1,16 +1,11 @@
-import { getToken } from "next-auth/jwt";
 import { NextResponse } from "next/server";
+import { COOKIE_KEYS } from "./app/constants/cookie-keys";
 
 export async function middleware(request) {
   const pathname = request.nextUrl.pathname;
   const nextAuthSessionToken = request.cookies.get(
-    "__Secure-next-auth.session-token"
+    COOKIE_KEYS.ACCESS_TOKEN
   )?.value;
-
-  // const token = await getToken({
-  //   req: request,
-  //   secret: process.env.NEXTAUTH_SECRET,
-  // });
 
   // Nếu vào private path mà chưa đăng nhập thì sẽ redirect về trang login
   if (pathname !== "/auth" && !nextAuthSessionToken) {

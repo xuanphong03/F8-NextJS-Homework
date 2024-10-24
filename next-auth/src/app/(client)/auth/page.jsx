@@ -1,4 +1,3 @@
-import { FaGithub, FaGoogle } from "react-icons/fa6";
 import LoginGithubButton from "./LoginGithubButton";
 import LoginGoogleButton from "./LoginGoogleButton";
 import { useTranslations } from "next-intl";

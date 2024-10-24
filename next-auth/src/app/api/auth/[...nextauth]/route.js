@@ -1,3 +1,4 @@
+import { COOKIE_KEYS } from "@/app/constants/cookie-keys";
 import { AUTH_PROVIDERS } from "@/libs/authProviders";
 import { cookies } from "next/headers";
 
@@ -9,10 +10,17 @@ const handler = NextAuth({
   callbacks: {
     async signIn({ account, profile }) {
       let providerKey;
+      let nameKey;
+      let avatarKey;
+
       if (account.provider === "google") {
-        providerKey = "google-provider";
+        providerKey = COOKIE_KEYS.GOOGLE_PROVIDER;
+        nameKey = COOKIE_KEYS.GOOGLE_NAME;
+        avatarKey = COOKIE_KEYS.GOOGLE_AVATAR;
       } else if (account.provider === "github") {
-        providerKey = "github-provider";
+        providerKey = COOKIE_KEYS.GITHUB_PROVIDER;
+        nameKey = COOKIE_KEYS.GITHUB_NAME;
+        avatarKey = COOKIE_KEYS.GITHUB_AVATAR;
       }
       if (providerKey) {
         cookies().set({
@@ -22,6 +30,18 @@ const handler = NextAuth({
           path: "/",
         });
       }
+      cookies().set({
+        name: nameKey,
+        value: profile?.name,
+        httpOnly: true,
+        path: "/",
+      });
+      cookies().set({
+        name: avatarKey,
+        value: profile?.picture || profile?.avatar_url,
+        httpOnly: true,
+        path: "/",
+      });
       cookies().set({
         name: "login-status",
         value: true,
