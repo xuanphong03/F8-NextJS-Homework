@@ -34,7 +34,7 @@ export async function GET() {
   }
   return NextResponse.json(
     {
-      success: {
+      data: {
         providers,
         profile: { ...session },
         google: googleProfile,

@@ -21,7 +21,15 @@ export default function ProfilePage() {
       if (!response.ok) {
         throw new Error("Get profile failed");
       }
-      return response.json();
+      const { data } = await response.json();
+      const { providers, google: googleProfile, github: githubProfile } = data;
+      setProviders(providers);
+      if (providers.includes("github")) {
+        setGithubProfile(githubProfile);
+      }
+      if (providers.includes("google")) {
+        setGoogleProfile(googleProfile);
+      }
     } catch (error) {
       return false;
     } finally {
@@ -44,21 +52,7 @@ export default function ProfilePage() {
   };
 
   useState(() => {
-    // (async () => {
-    //   const response = await getProfile();
-    //   const {
-    //     providers,
-    //     google: googleProfile,
-    //     github: githubProfile,
-    //   } = response?.success;
-    //   setProviders(providers);
-    //   if (providers.includes("github")) {
-    //     setGithubProfile(githubProfile);
-    //   }
-    //   if (providers.includes("google")) {
-    //     setGoogleProfile(googleProfile);
-    //   }
-    // })();
+    getProfile();
   }, []);
 
   return (
