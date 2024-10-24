@@ -9,13 +9,12 @@ import { FaGithub, FaGoogle } from "react-icons/fa6";
 export default function ProfilePage() {
   const t = useTranslations("ProfilePage");
   const { data, status } = useSession();
-  const [profile, setProfile] = useState(null);
   const [providers, setProviders] = useState([]);
   const [googleProfile, setGoogleProfile] = useState(null);
   const [githubProfile, setGithubProfile] = useState(null);
 
   const getProfile = async () => {
-    const response = await fetch("/api/getProfile");
+    const response = await fetch("/api/profile");
     if (response.ok) {
       return response.json();
     }
