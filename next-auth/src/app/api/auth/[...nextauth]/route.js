@@ -30,8 +30,11 @@ const handler = NextAuth({
       });
       return true;
     },
-    async signOut() {
-      console.log("sign out");
+    async session({ session, user, token }) {
+      return session;
+    },
+    async jwt({ token, user, account, profile, isNewUser }) {
+      return token;
     },
   },
 });

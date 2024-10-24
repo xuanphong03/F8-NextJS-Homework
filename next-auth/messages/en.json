@@ -1,0 +1,34 @@
+{
+  "HomePage": {
+    "contact-information-title": "Social Contact",
+    "my-project-title": "Self Project",
+    "project-playlist-complete-time": "A small project completed within two days.",
+    "project-playlist-description": "A simple website that allows you to create and share code PlayList. Using HTML, CSS, JS.",
+    "my-favorite-title": "My Hobbies",
+    "first-favorite": "Enjoy Relaxing Music, Rap Music From Đen Vâu And Other Artists,…",
+    "second-favorite": "Read Books, Learn More About New Programming Languages. Currently, I Am Self-Studying Python",
+    "third-favorite": "Follow The Technology Trends, News About Famous Products Like Iphone, Huawei, GoogleAI,…",
+    "my-skills-title": "My Skills",
+    "first-skill-title": "Web developer",
+    "first-skill-description": "REST API, ReactJS, NextJS, Redux, Context, CSS3, HTML5, UI/UX, Figma, Photoshop...",
+    "others-skill-title": "Other skills",
+    "others-skill-description": "Relatively good research and search skills. Working thinking, good teamwork skills compared to age.",
+    "my-history-title": "Histories",
+    "primary-school-name": "Vinh Quynh Primary School",
+    "secondary-school-name": "Vinh Quynh Secondary School",
+    "high-school-name": "Ngo Thi Nham High School",
+    "university-name": "Thang Long University"
+  },
+  "ProfilePage": {
+    "sign-out-button": "Sign Out",
+    "not-registered-google": "You have'not registered Google",
+    "not-registered-github": "You have'not registered Github"
+  },
+  "AuthPage": {
+    "introduction": "Hello, I'm Phong, this is my personal page.",
+    "sign-in-title": "Sign In",
+    "sign-in-github": "Sign In with Github",
+    "sign-in-google": "Sign In with Google",
+    "description": "Sign In to contact, comment and explore many other interesting features."
+  }
+}

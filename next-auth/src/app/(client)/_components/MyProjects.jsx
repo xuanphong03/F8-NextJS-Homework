@@ -1,19 +1,21 @@
 import { Divider, Tooltip } from "@nextui-org/react";
+import { useTranslations } from "next-intl";
 import Link from "next/link";
 import React from "react";
 
 export default function MyProjectsSession() {
+  const t = useTranslations("HomePage");
+
   return (
     <div className="py-10 space-y-5">
-      <h2 className="text-center text-2xl font-bold">Các dự án cá nhân</h2>
+      <h2 className="text-center text-2xl font-bold">
+        {t("my-project-title")}
+      </h2>
       <ul className="space-y-5">
         <li className="dark:text-teal-500 space-y-2">
           <h3 className="text-xl font-bold">Project Playlist</h3>
-          <p>Một dự án nhỏ hoàn thành trong vòng hai ngày.</p>
-          <p>
-            Một trang web đơn giản cho phép bạn tạo và chia sẻ mã PlayList. Sử
-            dụng HTML, CSS, JS.
-          </p>
+          <p>{t("project-playlist-complete-time")}</p>
+          <p>{t("project-playlist-description")}</p>
           <div className="flex gap-5 items-center">
             <Tooltip
               color="warning"
@@ -46,11 +48,8 @@ export default function MyProjectsSession() {
         </li>
         <li className="dark:text-teal-500 space-y-2">
           <h3 className="text-xl font-bold">Project Playlist</h3>
-          <p>Một dự án nhỏ hoàn thành trong vòng hai ngày.</p>
-          <p>
-            Một trang web đơn giản cho phép bạn tạo và chia sẻ mã PlayList. Sử
-            dụng HTML, CSS, JS.
-          </p>
+          <p>{t("project-playlist-complete-time")}</p>
+          <p>{t("project-playlist-description")}</p>
           <div className="flex gap-5 items-center">
             <Tooltip
               color="warning"
@@ -83,11 +82,8 @@ export default function MyProjectsSession() {
         </li>
         <li className="dark:text-teal-500 space-y-2">
           <h3 className="text-xl font-bold">Project Playlist</h3>
-          <p>Một dự án nhỏ hoàn thành trong vòng hai ngày.</p>
-          <p>
-            Một trang web đơn giản cho phép bạn tạo và chia sẻ mã PlayList. Sử
-            dụng HTML, CSS, JS.
-          </p>
+          <p>{t("project-playlist-complete-time")}</p>
+          <p>{t("project-playlist-description")}</p>
           <div className="flex gap-5 items-center">
             <Tooltip
               color="warning"

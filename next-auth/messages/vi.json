@@ -1,0 +1,34 @@
+{
+  "HomePage": {
+    "contact-information-title": "Thông tin liên hệ",
+    "my-project-title": "Các dự án cá nhân",
+    "project-playlist-complete-time": "Một dự án nhỏ hoàn thành trong vòng hai ngày.",
+    "project-playlist-description": "Một trang web đơn giản cho phép bạn tạo và chia sẻ mã PlayList. Sử dụng HTML, CSS, JS.",
+    "my-favorite-title": "Sở thích cá nhân",
+    "first-favorite": "Thưởng Thức Nhạc Nhẹ, Nhạc Rap Của Đen Vâu Và Các Nghệ Sĩ Khác,…",
+    "second-favorite": "Đọc Sách, Học Hỏi Thêm Về Các Ngôn Ngữ Lập Trình Mới Mẻ. Hiện Tại, Tôi Đang Tự Học Python",
+    "third-favorite": "Theo Dõi Các Xu Hướng Công Nghệ, Tin Tức Về Các Sản Phẩm Nổi Tiếng Như Iphone, Huawei, GoogleAI,…",
+    "my-skills-title": "Các kỹ năng của tôi",
+    "first-skill-title": "Kỹ năng làm việc",
+    "first-skill-description": "REST API, ReactJS, NextJS, Redux, Context, CSS3, HTML5, UI/UX, Figma, Photoshop...",
+    "others-skill-title": "Các kỹ năng khác",
+    "others-skill-description": "Kỹ năng nghiên cứu và tìm kiếm tương đối tốt. Tư duy làm việc, kỹ năng làm việc nhóm tốt so với độ tuổi.",
+    "my-history-title": "Lịch sử",
+    "primary-school-name": "Trường Tiểu học Vĩnh Quỳnh",
+    "secondary-school-name": "Trường Trung học cơ sở Vĩnh Quỳnh",
+    "high-school-name": "Trường THPT Ngô Thì Nhậm",
+    "university-name": "Trường Đại học Thăng Long"
+  },
+  "ProfilePage": {
+    "sign-out-button": "Đăng xuất",
+    "not-registered-google": "Bạn chưa đăng ký Google",
+    "not-registered-github": "Bạn chưa đăng ký Github"
+  },
+  "AuthPage": {
+    "introduction": "Xin chào, mình là Phong, đây là trang cá nhân của mình.",
+    "sign-in-title": "Đăng nhập",
+    "sign-in-github": "Đăng nhập với Github",
+    "sign-in-google": "Đăng nhập với Google",
+    "description": "Đăng nhập để liên hệ, bình luận và khám phá nhiều tính năng thú vị khác."
+  }
+}

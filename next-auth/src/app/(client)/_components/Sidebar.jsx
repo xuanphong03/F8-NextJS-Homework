@@ -1,7 +1,10 @@
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 import F8_Logo from "@/public/images/f8_logo.webp";
 
 export default function Sidebar() {
+  const t = useTranslations("HomePage");
+
   return (
     <aside className="col-span-3 px-2 space-y-4">
       <div>
@@ -16,53 +19,47 @@ export default function Sidebar() {
         <h3 className="mt-2 text-center">Fullstack Developer</h3>
       </div>
       <div>
-        <h2 className="font-bold text-xl">Các kỹ năng của tôi</h2>
+        <h2 className="font-bold text-xl">{t("my-skills-title")}</h2>
         <ul className="space-y-1 mt-2">
           <li>
             <h3 className="">
-              Kỹ năng làm việc:{" "}
-              <span>
-                REST API, ReactJS, NextJS, Redux, Context, CSS3, HTML5, UI/UX,
-                Figma, Photoshop...
-              </span>
+              {t("first-skill-title")}:{" "}
+              <span>{t("first-skill-description")}</span>
             </h3>
           </li>
           <li>
             <h3>
-              Các kỹ năng khác:{" "}
-              <span>
-                Kỹ năng nghiên cứu và tìm kiếm tương đối tốt. Tư duy làm việc,
-                kỹ năng làm việc nhóm tốt so với độ tuổi.
-              </span>
+              {t("others-skill-title")}:{" "}
+              <span>{t("others-skill-description")}</span>
             </h3>
           </li>
         </ul>
       </div>
       <div>
-        <h2 className="font-bold text-xl">Lịch sử</h2>
+        <h2 className="font-bold text-xl">{t("my-history-title")}</h2>
         <ul className="space-y-1 mt-2">
           <li>
             <h3 className="">
               2009-2014:
-              <span>Trường Tiểu học Vĩnh Quỳnh</span>
+              <span>{t("primary-school-name")}</span>
             </h3>
           </li>
           <li>
             <h3>
               2014-2018:
-              <span>Trường THCS Vĩnh Quỳnh</span>
+              <span>{t("secondary-school-name")}</span>
             </h3>
           </li>
           <li>
             <h3>
               2018-2021:
-              <span>Trường THPT Ngô Thì Nhậm</span>
+              <span>{t("high-school-name")}</span>
             </h3>
           </li>
           <li>
             <h3>
               2021-2024:
-              <span>Trường Đại học Thăng Long</span>
+              <span>{t("university-name")}</span>
             </h3>
           </li>
         </ul>

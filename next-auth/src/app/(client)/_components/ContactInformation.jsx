@@ -1,10 +1,14 @@
 import Link from "next/link";
-import React from "react";
+import { useTranslations } from "next-intl";
 
 export default function ContactInformationSession() {
+  const t = useTranslations("HomePage");
+
   return (
     <div className="py-10">
-      <h2 className="text-center text-2xl font-bold">Thông tin liên hệ</h2>
+      <h2 className="text-center text-2xl font-bold">
+        {t("contact-information-title")}
+      </h2>
       <ul>
         <li className="flex items-center gap-2">
           <h3 className="font-bold">Phone:</h3>

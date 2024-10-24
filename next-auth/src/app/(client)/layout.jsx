@@ -4,6 +4,7 @@ import Providers from "./providers";
 
 import localFont from "next/font/local";
 import "../globals.css";
+import { getLocale, getMessages } from "next-intl/server";
 
 const geistSans = localFont({
   src: "../fonts/GeistVF.woff",
@@ -22,9 +23,11 @@ export const metadata = {
 };
 
 export default async function RootLayout({ children }) {
+  const locale = await getLocale();
+
   return (
     <SessionWrapper>
-      <html lang="en" suppressHydrationWarning={true}>
+      <html lang={locale} suppressHydrationWarning={true}>
         <body
           className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         >

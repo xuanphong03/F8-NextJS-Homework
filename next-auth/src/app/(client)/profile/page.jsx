@@ -2,10 +2,12 @@
 
 import { Avatar, Button } from "@nextui-org/react";
 import { signIn, signOut, useSession } from "next-auth/react";
+import { useTranslations } from "next-intl";
 import { useState } from "react";
 import { FaGithub, FaGoogle } from "react-icons/fa6";
 
 export default function ProfilePage() {
+  const t = useTranslations("ProfilePage");
   const { data, status } = useSession();
   const [profile, setProfile] = useState(null);
   const [providers, setProviders] = useState([]);
@@ -68,7 +70,7 @@ export default function ProfilePage() {
                   </div>
                 ) : (
                   <div className="flex items-center gap-2">
-                    <FaGithub /> Bạn chưa đăng ký Github
+                    <FaGithub /> {t("not-registered-github")}
                   </div>
                 )}
               </Button>
@@ -85,7 +87,7 @@ export default function ProfilePage() {
                   </div>
                 ) : (
                   <div className="flex items-center gap-2">
-                    <FaGoogle /> Bạn chưa đăng ký Google
+                    <FaGoogle /> {t("not-registered-google")}
                   </div>
                 )}
               </Button>
@@ -95,7 +97,7 @@ export default function ProfilePage() {
               onClick={handleSignOut}
               className="text-white bg-teal-500 font-bold"
             >
-              Đăng xuất
+              {t("sign-out-button")}
             </Button>
           </div>
         </>
