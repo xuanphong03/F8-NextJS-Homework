@@ -44,22 +44,21 @@ export default function ProfilePage() {
   };
 
   useState(() => {
-    (async () => {
-      const response = await getProfile();
-      const {
-        providers,
-        google: googleProfile,
-        github: githubProfile,
-      } = response?.success;
-      setProviders(providers);
-      console.log("providers", providers);
-      if (providers.includes("github")) {
-        setGithubProfile(githubProfile);
-      }
-      if (providers.includes("google")) {
-        setGoogleProfile(googleProfile);
-      }
-    })();
+    // (async () => {
+    //   const response = await getProfile();
+    //   const {
+    //     providers,
+    //     google: googleProfile,
+    //     github: githubProfile,
+    //   } = response?.success;
+    //   setProviders(providers);
+    //   if (providers.includes("github")) {
+    //     setGithubProfile(githubProfile);
+    //   }
+    //   if (providers.includes("google")) {
+    //     setGoogleProfile(googleProfile);
+    //   }
+    // })();
   }, []);
 
   return (
