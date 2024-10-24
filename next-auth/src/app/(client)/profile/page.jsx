@@ -38,12 +38,10 @@ export default function ProfilePage() {
     (async () => {
       const response = await getProfile();
       const {
-        profile,
         providers,
         google: googleProfile,
         github: githubProfile,
       } = response?.success;
-      setProfile(profile);
       setProviders(providers);
       console.log("providers", providers);
       if (providers.includes("github")) {
