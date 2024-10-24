@@ -3,7 +3,7 @@ import { NextResponse } from "next/server";
 export function middleware(request) {
   const pathname = request.nextUrl.pathname;
   const nextAuthSessionToken = request.cookies.get(
-    "next-auth.session-token"
+    "__Secure-next-auth.session-token"
   )?.value;
 
   // Nếu vào private path mà chưa đăng nhập thì sẽ redirect về trang login
