@@ -8,15 +8,24 @@ import { FaGithub, FaGoogle } from "react-icons/fa6";
 
 export default function ProfilePage() {
   const t = useTranslations("ProfilePage");
-  const { data, status } = useSession();
+  const { data } = useSession();
+  const [loading, setLoading] = useState(true);
   const [providers, setProviders] = useState([]);
   const [googleProfile, setGoogleProfile] = useState(null);
   const [githubProfile, setGithubProfile] = useState(null);
 
   const getProfile = async () => {
-    const response = await fetch("/api/profile");
-    if (response.ok) {
+    try {
+      setLoading(true);
+      const response = await fetch("/api/profile");
+      if (!response.ok) {
+        throw new Error("Get profile failed");
+      }
       return response.json();
+    } catch (error) {
+      return false;
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -34,29 +43,29 @@ export default function ProfilePage() {
     }
   };
 
-  // useState(() => {
-  //   (async () => {
-  //     const response = await getProfile();
-  //     const {
-  //       providers,
-  //       google: googleProfile,
-  //       github: githubProfile,
-  //     } = response?.success;
-  //     setProviders(providers);
-  //     console.log("providers", providers);
-  //     if (providers.includes("github")) {
-  //       setGithubProfile(githubProfile);
-  //     }
-  //     if (providers.includes("google")) {
-  //       setGoogleProfile(googleProfile);
-  //     }
-  //   })();
-  // }, []);
+  useState(() => {
+    (async () => {
+      const response = await getProfile();
+      const {
+        providers,
+        google: googleProfile,
+        github: githubProfile,
+      } = response?.success;
+      setProviders(providers);
+      console.log("providers", providers);
+      if (providers.includes("github")) {
+        setGithubProfile(githubProfile);
+      }
+      if (providers.includes("google")) {
+        setGoogleProfile(googleProfile);
+      }
+    })();
+  }, []);
 
   return (
     <div className="container mx-auto pt-20">
-      {status === "loading" && <p>Loading...</p>}
-      {status === "authenticated" && (
+      {loading && <p>Loading...</p>}
+      {!loading && (
         <>
           <div className="flex items-center gap-2">
             <Avatar size="lg" src={data?.user?.image} />
