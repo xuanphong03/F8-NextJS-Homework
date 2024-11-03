@@ -1,7 +1,16 @@
-import Link from "next/link";
-import React from "react";
+import MindMapList from "./_components/MindMapList";
+import CreateMindmapButton from "./_components/CreateMindmapButton";
 
-export default function MyMindmapPage() {
+export const metadata = {
+  title: "Mindmap của tôi",
+  description: "Mindmap Flow - Công cụ xây dựng sơ đồ tư duy mạnh mẽ",
+  openGraph: {
+    title: "Mindmap của tôi",
+    description: "Mindmap Flow - Công cụ xây dựng sơ đồ tư duy mạnh mẽ",
+  },
+};
+
+export default function MindMapPage() {
   return (
     <div className="container px-4 mx-auto">
       <div className="text-start">
@@ -9,12 +18,7 @@ export default function MyMindmapPage() {
           Mindmap của tôi
         </h1>
         <div className="py-4">
-          <Link
-            href="#"
-            className="rounded-lg px-4 py-2 bg-blue-500 text-blue-100 hover:bg-blue-600 duration-300"
-          >
-            Thêm mới
-          </Link>
+          <CreateMindmapButton />
         </div>
         <div className="py-4">
           <div className="flex items-center py-2">
@@ -22,7 +26,7 @@ export default function MyMindmapPage() {
               <input type="checkbox" />
             </span>
             <span className="w-1/2">
-              <span className="text-xs uppercase text-gray-600 font-bold">
+              <span className="text-xs uppercase text-gray-600 font-bold pl-4">
                 Tên
               </span>
             </span>
@@ -37,6 +41,7 @@ export default function MyMindmapPage() {
               </span>
             </span>
           </div>
+          <MindMapList />
         </div>
       </div>
     </div>

@@ -1,0 +1,4 @@
+export const SHARE_MODE = {
+  PUBLIC: "SHARE_MODE_PUBLIC",
+  PRIVATE: "SHARE_MODE_PRIVATE",
+};

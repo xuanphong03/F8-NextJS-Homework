@@ -5,17 +5,22 @@ import { usePathname } from "next/navigation";
 
 export default function Header() {
   const pathname = usePathname();
-  const { user, error, isLoading } = useUser();
+  const { user, isLoading } = useUser();
   const activeLink = (path) => {
     return pathname === path;
   };
-  if (user) {
-    console.log(user);
+
+  if (isLoading) {
+    return (
+      <div className="h-screen w-screen fixed inset-0 z-50 bg-white">
+        Loading...
+      </div>
+    );
   }
 
   return (
-    <header>
-      <nav className="bg-white py-2 md:py-4">
+    <header className="h-20">
+      <nav className="flex items-center bg-white py-2 md:py-4">
         <div className="container px-4 mx-auto md:flex md:items-center">
           <div className="flex justify-between items-center">
             <Link href="/" className="font-bold text-xl text-indigo-600">
@@ -79,7 +84,7 @@ export default function Header() {
                   Hi, {user?.given_name} {user?.family_name}
                 </p>
                 <Link
-                  href="/my-mindmap"
+                  href="/mindmap"
                   className="p-2 lg:px-4 md:mx-2 text-indigo-600 text-center border border-transparent rounded hover:bg-indigo-100 hover:text-indigo-700 transition-colors duration-300"
                 >
                   Mindmap
