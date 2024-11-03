@@ -46,20 +46,22 @@ export default function LeafNode({ data, selected, isConnectable }) {
         position={Position.Top}
         isConnectable={isConnectable}
       />
-      <input
-        id="text"
-        name="text"
-        value={data.label}
-        disabled={disabled}
-        onChange={handleChange}
-        onBlur={() => setDisabled(true)}
-        onKeyUp={(e) => {
-          if (e.key === "Enter") {
-            setDisabled(true);
-          }
-        }}
-        className="w-full px-2 outline-none h-full text-center bg-transparent block"
-      />
+      <div>
+        <input
+          id="text"
+          name="text"
+          value={data.label}
+          disabled={disabled}
+          onChange={handleChange}
+          onBlur={() => setDisabled(true)}
+          onKeyUp={(e) => {
+            if (e.key === "Enter") {
+              setDisabled(true);
+            }
+          }}
+          className="w-full px-2 outline-none text-center bg-transparent"
+        />
+      </div>
       <Handle
         type="source"
         position={Position.Bottom}
