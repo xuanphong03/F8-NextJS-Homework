@@ -53,9 +53,9 @@ function Mindmap({ mindmap }) {
       };
       await mindmapApi.update(mindmap.id, cloneMindmap);
       setAccessMode(shareMode);
-      toast.success("Update mindmap successfully 👌");
+      toast.success("Cập nhật mindmap thành công 👌");
     } catch (error) {
-      toast.error("Update mindmap to failed ");
+      toast.error("Cập nhật mindmap thất bại");
       throw new Error("Update share mode to failed");
     }
   };
@@ -72,10 +72,9 @@ function Mindmap({ mindmap }) {
       const response = await mindmapApi.update(mindmap.id, updatedMindmap);
       setMindmapName(response.name);
       setMindmapDesc(response.desc);
-      toast.success("Update mindmap successfully");
+      toast.success("Cập nhật mindmap thành công");
     } catch (error) {
-      toast.error("Update mindmap to failed");
-      console.error("Lỗi khi lưu mindmap:", error);
+      toast.error("Cập nhật mindmap thất bại");
     }
   };
 
