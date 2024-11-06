@@ -35,9 +35,9 @@ export default function CreateMindmapButton() {
         createAt,
       };
       await mindmapApi.create(mindmap);
-      clearCacheByTag("mindmap-list");
-      router.refresh();
-      // router.push(`/mindmap/${mindmap.id}`);
+      // clearCacheByTag("mindmap-list");
+      // router.refresh();
+      router.push(`/mindmap/${mindmap.id}`);
     } catch (error) {
       throw new Error("Create new mind map to failed");
     } finally {
