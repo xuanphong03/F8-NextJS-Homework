@@ -1,5 +1,6 @@
 import MindMapList from "./_components/MindMapList";
 import CreateMindmapButton from "./_components/CreateMindmapButton";
+import { getSession } from "@auth0/nextjs-auth0";
 
 export const metadata = {
   title: "Mindmap của tôi",
@@ -10,7 +11,28 @@ export const metadata = {
   },
 };
 
-export default function MindMapPage() {
+const getMindmapList = async (sub) => {
+  try {
+    const response = await fetch(
+      `${process.env.SERVER_API}/mindmaps?userSub=${sub}`,
+      {
+        next: {
+          tags: ["mindmap-list"],
+        },
+      }
+    );
+    // return response.json();
+    return response.json();
+  } catch (error) {}
+};
+
+export default async function MindMapPage() {
+  const { user } = await getSession();
+  // console.log("user:", user);
+  let mindmapList = [];
+  if (user) {
+    mindmapList = await getMindmapList(user.sub);
+  }
   return (
     <div className="container px-4 mx-auto">
       <div className="text-start">
@@ -22,9 +44,6 @@ export default function MindMapPage() {
         </div>
         <div className="py-4">
           <div className="flex items-center py-2">
-            <span className="w-1/6 text-center">
-              <input type="checkbox" />
-            </span>
             <span className="w-1/2">
               <span className="text-xs uppercase text-gray-600 font-bold pl-4">
                 Tên
@@ -41,7 +60,7 @@ export default function MindMapPage() {
               </span>
             </span>
           </div>
-          <MindMapList />
+          <MindMapList mindmapList={mindmapList} />
         </div>
       </div>
     </div>

@@ -69,7 +69,7 @@ export default function PricePage() {
           <div className="mb-8 pb-8 flex items-center border-b border-gray-600">
             <Image
               alt="template"
-              src="/images/abstract01.jpg"
+              src="/images/abstract02.jpg"
               width={80}
               height={80}
               className="rounded-3xl w-20 h-20"
@@ -115,8 +115,8 @@ export default function PricePage() {
         <div className="w-full flex-1 mt-8 p-8 order-3 bg-white shadow-xl rounded-3xl sm:w-96 lg:w-full lg:order-3 lg:rounded-l-none">
           <div className="mb-7 pb-7 flex items-center border-b border-gray-300">
             <Image
-              alt="abstract01"
-              src="/images/abstract01.jpg"
+              alt="abstract02"
+              src="/images/abstract03.jpg"
               className="rounded-3xl w-20 h-20"
               width={80}
               height={80}
@@ -136,19 +136,19 @@ export default function PricePage() {
             <li className="flex text-lg mb-2 items-center">
               <FaCheck />{" "}
               <span className="ml-3">
-                Get started with <span className="text-black">messaging</span>
+                All features in <span className="text-black">Startup</span>
               </span>
             </li>
             <li className="flex text-lg mb-2 items-center">
               <FaCheck />{" "}
               <span className="ml-3">
-                Flexible <span className="text-black">team meetings</span>
+                Growth <span className="text-black">oriented</span>
               </span>
             </li>
             <li className="flex text-lg mb-2 items-center">
               <FaCheck />{" "}
               <span className="ml-3">
-                5 TB <span className="text-black">cloud storage</span>
+                Unlimited <span className="text-black">cloud storage</span>
               </span>
             </li>
           </ul>

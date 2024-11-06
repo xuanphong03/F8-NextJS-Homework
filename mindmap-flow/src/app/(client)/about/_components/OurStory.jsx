@@ -22,46 +22,50 @@ export default function OurStory() {
         <div className="grid md:grid-cols-4 sm:grid-cols-2 grid-cols-1 lg:gap-4 shadow-lg rounded-md">
           <div className="p-4 pb-6 flex justify-center flex-col items-center">
             <Image
+              loading="lazy"
               alt="Xuan Phong"
               src="/images/member01.png"
               width={160}
               height={184}
             />
             <p className="font-medium text-xl leading-5 text-gray-800 dark:text-white mt-4">
-              Xuan Phong
+              Alexa
             </p>
           </div>
           <div className="p-4 pb-6 flex justify-center flex-col items-center">
             <Image
+              loading="lazy"
               alt="Xuan Phong"
-              src="/images/member01.png"
+              src="/images/member02.png"
               width={160}
               height={184}
             />
             <p className="font-medium text-xl leading-5 text-gray-800 dark:text-white mt-4">
-              Xuan Phong
+              Olivia
             </p>
           </div>
           <div className="p-4 pb-6 flex justify-center flex-col items-center">
             <Image
+              loading="lazy"
               alt="Xuan Phong"
-              src="/images/member01.png"
+              src="/images/member03.png"
               width={160}
               height={184}
             />
             <p className="font-medium text-xl leading-5 text-gray-800 dark:text-white mt-4">
-              Xuan Phong
+              Liam
             </p>
           </div>
           <div className="p-4 pb-6 flex justify-center flex-col items-center">
             <Image
+              loading="lazy"
               alt="Xuan Phong"
-              src="/images/member01.png"
+              src="/images/member04.png"
               width={160}
               height={184}
             />
             <p className="font-medium text-xl leading-5 text-gray-800 dark:text-white mt-4">
-              Xuan Phong
+              Elijah
             </p>
           </div>
         </div>
