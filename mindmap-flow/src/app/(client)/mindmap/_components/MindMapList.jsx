@@ -1,13 +1,58 @@
-// "use client";
+"use client";
 import moment from "moment";
 import Link from "next/link";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import DeleteMindmapButton from "./DeleteMindmapButton";
+import MindmapDeletionAlert from "./MindmapDeletionAlert";
+import { useUser } from "@auth0/nextjs-auth0/client";
+import { useEffect, useState } from "react";
+import mindmapApi from "@/app/service/mindmapApi";
 
-export default function MindMapList({ mindmapList }) {
+export default function MindMapList() {
+  const { user } = useUser();
+  const [mindmapList, setMindmapList] = useState([]);
+  const [showDeletionAlert, setShowDeletionAlert] = useState(false);
+  const [selectedMindmap, setSelectedMindmap] = useState(null);
+
+  const getMindmapList = async () => {
+    try {
+      const response = await mindmapApi.getAll({ userSub: user.sub });
+      setMindmapList(response);
+    } catch (error) {
+      throw new Element("Get all mindmap to failed");
+    }
+  };
+
+  const handleDeleteMindmap = async () => {
+    try {
+      if (selectedMindmap) {
+        await mindmapApi.delete(selectedMindmap);
+        toast.success("Delete mindmap successfully");
+        getMindmapList();
+      }
+    } catch (error) {
+      toast.error("Delete mindmap to failed");
+    } finally {
+      setSelectedMindmap(null);
+      setShowDeletionAlert(false);
+    }
+  };
+
+  useEffect(() => {
+    if (user) {
+      getMindmapList();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [user]);
+
   return (
     <>
+      {showDeletionAlert && (
+        <MindmapDeletionAlert
+          onClose={() => setShowDeletionAlert(false)}
+          onDelete={handleDeleteMindmap}
+        />
+      )}
       {mindmapList.map((mindmap) => {
         return (
           <div
@@ -37,7 +82,12 @@ export default function MindMapList({ mindmapList }) {
               <button className="text-blue-600 text-sm">
                 <Link href={`/mindmap/${mindmap?.id}`}>Sửa</Link>
               </button>
-              <DeleteMindmapButton mindmapId={mindmap.id} />
+              <button
+                onClick={() => setShowAlert(true)}
+                className="text-red-600 text-sm"
+              >
+                Xóa
+              </button>
             </div>
           </div>
         );
