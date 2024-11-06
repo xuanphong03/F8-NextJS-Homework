@@ -1,7 +1,7 @@
 "use client";
 import { SHARE_MODE } from "@/app/constants/share-mode";
 import mindmapApi from "@/app/service/mindmapApi";
-import { UserContext } from "@auth0/nextjs-auth0/client";
+import { useUser } from "@auth0/nextjs-auth0/client";
 import {
   addEdge,
   Background,
@@ -15,7 +15,7 @@ import {
 } from "@xyflow/react";
 import "@xyflow/react/dist/style.css";
 import { notFound } from "next/navigation";
-import { useCallback, useContext, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { FaSave } from "react-icons/fa";
 import { FaShare } from "react-icons/fa6";
 import { toast, ToastContainer } from "react-toastify";
@@ -32,7 +32,7 @@ const nodeTypes = {
 };
 
 function Mindmap({ mindmap }) {
-  const { user } = useContext(UserContext);
+  const { user } = useUser();
   const reactFlowWrapper = useRef(null);
   const [nodes, setNodes, onNodesChange] = useNodesState([]);
   const [edges, setEdges, onEdgesChange] = useEdgesState([]);

@@ -1,13 +1,12 @@
 "use client";
-import { UserContext } from "@auth0/nextjs-auth0/client";
+import { useUser } from "@auth0/nextjs-auth0/client";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import React, { useContext } from "react";
 
 export default function DesktopMenu() {
   const pathname = usePathname();
-  const { user, isLoading } = useContext(UserContext);
+  const { user, isLoading } = useUser();
 
   const activeLink = (path) => {
     return pathname === path;

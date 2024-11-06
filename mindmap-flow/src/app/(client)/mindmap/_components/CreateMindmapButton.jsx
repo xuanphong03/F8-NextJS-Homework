@@ -1,14 +1,14 @@
 "use client";
 import mindmapApi from "@/app/service/mindmapApi";
 import { clearCacheByTag } from "@/app/utils/cache";
-import { UserContext } from "@auth0/nextjs-auth0/client";
+import { useUser } from "@auth0/nextjs-auth0/client";
 import { useRouter } from "next/navigation";
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import LoadingSpinner from "./LoadingSpinner";
 
 export default function CreateMindmapButton() {
-  const { user } = useContext(UserContext);
+  const { user } = useUser();
   const router = useRouter();
   const [loading, setLoading] = useState(false);
 

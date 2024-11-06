@@ -27,12 +27,13 @@ const getMindmapList = async (sub) => {
 };
 
 export default async function MindMapPage() {
-  const { user } = await getSession();
-  // console.log("user:", user);
-  let mindmapList = [];
-  if (user) {
-    mindmapList = await getMindmapList(user.sub);
-  }
+  // const { user } = await getSession();
+  // // console.log("user:", user);
+  // let mindmapList = [];
+  // if (user) {
+  //   mindmapList = await getMindmapList(user.sub);
+  // }
+  const mindmapList = [];
   return (
     <div className="container px-4 mx-auto">
       <div className="text-start">
