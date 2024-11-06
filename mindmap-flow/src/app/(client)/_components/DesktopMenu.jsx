@@ -1,5 +1,6 @@
 "use client";
 import { UserContext } from "@auth0/nextjs-auth0/client";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React, { useContext } from "react";
@@ -14,8 +15,13 @@ export default function DesktopMenu() {
 
   if (isLoading) {
     return (
-      <div className="h-screen w-screen fixed inset-0 z-50 bg-white">
-        Loading...
+      <div className="h-screen flex justify-center items-center fixed inset-0 z-50 bg-white">
+        <Image
+          src="/images/loading.gif"
+          height={100}
+          width={600}
+          alt="loading"
+        />
       </div>
     );
   }
