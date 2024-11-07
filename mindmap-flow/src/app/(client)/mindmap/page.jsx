@@ -11,20 +11,20 @@ export const metadata = {
   },
 };
 
-const getMindmapList = async (sub) => {
-  try {
-    const response = await fetch(
-      `${process.env.SERVER_API}/mindmaps?userSub=${sub}`,
-      {
-        next: {
-          tags: ["mindmap-list"],
-        },
-      }
-    );
-    // return response.json();
-    return response.json();
-  } catch (error) {}
-};
+// const getMindmapList = async (sub) => {
+//   try {
+//     const response = await fetch(
+//       `${process.env.SERVER_API}/mindmaps?userSub=${sub}`,
+//       {
+//         next: {
+//           tags: ["mindmap-list"],
+//         },
+//       }
+//     );
+//     // return response.json();
+//     return response.json();
+//   } catch (error) {}
+// };
 
 export default async function MindMapPage() {
   return (
