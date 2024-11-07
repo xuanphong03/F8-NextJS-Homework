@@ -59,7 +59,7 @@ export default function LeafNode({ data, selected, isConnectable }) {
               setDisabled(true);
             }
           }}
-          className="w-full px-2 outline-none text-center bg-transparent"
+          className="w-full px-2 outline-none text-center bg-transparent select-none"
         />
       </div>
       <Handle

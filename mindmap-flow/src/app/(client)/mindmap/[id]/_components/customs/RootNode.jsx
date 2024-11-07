@@ -45,7 +45,7 @@ export default function RootNode({ data }) {
               setDisabled(true);
             }
           }}
-          className="w-full px-2 outline-none text-center bg-transparent"
+          className="w-full px-2 outline-none text-center bg-transparent select-none"
         />
       </div>
       <Handle type="source" position={Position.Bottom} />
