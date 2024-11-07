@@ -28,10 +28,14 @@
 //   matcher: ["/mindmap/:id*"],
 // };
 // middleware.js
-import { withMiddlewareAuthRequired } from "@auth0/nextjs-auth0/edge";
+import {
+  getSession,
+  withMiddlewareAuthRequired,
+} from "@auth0/nextjs-auth0/edge";
+import { NextResponse } from "next/server";
 
 export default withMiddlewareAuthRequired(async function middleware(request) {
-  // const response = new NextResponse();
+  const response = NextResponse.next();
   const pathname = request.nextUrl.pathname;
   const id = pathname.replace("/mindmap", "").replace("/", "");
   const mindmapResponse = await fetch(
@@ -39,18 +43,18 @@ export default withMiddlewareAuthRequired(async function middleware(request) {
   );
   const mindmap = await mindmapResponse.json();
   let mode = "private";
-  // const user = await getSession(request, response);
+
   if (mindmap?.data?.public) {
     mode = "public";
   }
   if (mode === "private") {
-    const user = await getSession();
+    const user = await getSession(request, response);
     if (!user) {
       return NextResponse.redirect(new URL("/api/auth/login", request.url));
     }
   }
 
-  return NextResponse.next();
+  return response;
 });
 
 export const config = {
