@@ -1,0 +1,14 @@
+.swiper-button-prev,
+.swiper-button-next {
+  color: #fff;
+}
+.swiper-pagination-bullet-active {
+  background-color: #fff;
+}
+
+@media screen and (max-width: 1319px) {
+  .swiper-button-prev,
+  .swiper-button-next {
+    display: none;
+  }
+}
