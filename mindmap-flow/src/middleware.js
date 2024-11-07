@@ -61,5 +61,5 @@ export default withMiddlewareAuthRequired(async function middleware(request) {
 });
 
 export const config = {
-  matcher: ["/", "/mindmap/:id*"],
+  matcher: ["/", "/about", "/features", "/price", "/contact", "/mindmap/:id*"],
 };
