@@ -37,6 +37,9 @@ import { NextResponse } from "next/server";
 export default withMiddlewareAuthRequired(async function middleware(request) {
   const response = NextResponse.next();
   const pathname = request.nextUrl.pathname;
+  if (!pathname.startsWith("/mindmap")) {
+    return response;
+  }
   const id = pathname.replace("/mindmap", "").replace("/", "");
   const mindmapResponse = await fetch(
     `${process.env.CLIENT_BASE_URL}/api/mindmap?id=${id}`
@@ -58,5 +61,5 @@ export default withMiddlewareAuthRequired(async function middleware(request) {
 });
 
 export const config = {
-  matcher: ["/mindmap/:id*"],
+  matcher: ["/", "/mindmap/:id*"],
 };
