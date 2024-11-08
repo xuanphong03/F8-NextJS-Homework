@@ -49,7 +49,6 @@ export default function LeafNode({ data, selected, isConnectable }) {
       <div
         className=""
         onDoubleClick={() => {
-          console.log("click");
           setDisabled(false);
         }}
       >
