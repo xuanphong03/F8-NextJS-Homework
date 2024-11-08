@@ -4,11 +4,14 @@ import { useEffect, useRef, useState } from "react";
 import { AiOutlineMenu } from "react-icons/ai";
 import { IoSearchOutline } from "react-icons/io5";
 import GenreMenu from "./GenreMenu";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
+import queryString from "query-string";
 
 export default function TabletNavbar() {
-  const [showNavbar, setShowNavbar] = useState(false);
+  const router = useRouter();
   const pathname = usePathname();
+  const [showNavbar, setShowNavbar] = useState(false);
+  const [searchTerm, setSearchTerm] = useState("");
   const navbarRef = useRef(null);
   const menuButtonRef = useRef(null);
 
@@ -30,6 +33,19 @@ export default function TabletNavbar() {
     }
   };
 
+  const handleChangeSearchTerm = (e) => {
+    setSearchTerm(e.target.value);
+  };
+
+  const handleSearchMovie = (e) => {
+    e.preventDefault();
+    if (!searchTerm) return;
+    setSearchTerm("");
+    setShowNavbar(false);
+    const queryParams = { page: 1, query: searchTerm };
+    router.push(`/search-movie?${queryString.stringify(queryParams)}`);
+  };
+
   useEffect(() => {
     document.addEventListener("mousedown", handleClickOutside);
     return () => {
@@ -42,7 +58,7 @@ export default function TabletNavbar() {
       <button
         ref={menuButtonRef}
         onClick={handleClickMenu}
-        className="text-2xl cursor-pointer flex items-center justify-center size-10"
+        className="text-2xl cursor-pointer flex items-center justify-center size-10 hover:bg-gray-500 rounded transition-colors"
       >
         <AiOutlineMenu />
       </button>
@@ -50,67 +66,87 @@ export default function TabletNavbar() {
         ref={navbarRef}
         className={`${
           showNavbar ? "block" : "hidden"
-        } absolute top-full left-0 right-0 bg-slate-700 border-t border-solid border-gray-300 px-5 pt-2 py-4 flex flex-col gap-2`}
+        } absolute top-full left-0 right-0 bg-slate-700 border-t border-solid border-gray-300 pt-2 py-4 flex flex-col gap-2`}
       >
-        <li className="link relative">
+        <li className="link relative cursor-pointer">
           <Link
             href="/new-movies"
-            className={`py-2 relative ${
-              activeLink("/new-movies") ? "text-yellow-500" : ""
+            className={`block py-2 relative transition-all  ${
+              activeLink("/new-movies")
+                ? "text-yellow-500"
+                : "hover:text-yellow-400 hover:bg-gray-400 px-5"
             }`}
           >
             Newest
           </Link>
         </li>
-        <li className="link relative">
+        <li className="link relative hover:text-yellow-400 hover:bg-gray-400 transition-all cursor-pointer">
           <Link
             href="/popular"
-            className={`py-2 relative ${
-              activeLink("/popular") ? "text-yellow-500" : ""
+            className={`block py-2 relative transition-all  ${
+              activeLink("/popular")
+                ? "text-yellow-500"
+                : "hover:text-yellow-400 hover:bg-gray-400 px-5"
             }`}
           >
             Popular
           </Link>
         </li>
-        <li className="link relative">
+        <li className="link relative hover:text-yellow-400 hover:bg-gray-400 transition-all cursor-pointer">
           <Link
             href="/upcoming"
-            className={`py-2 relative ${
-              activeLink("/upcoming") ? "text-yellow-500" : ""
+            className={`block py-2 relative transition-all  ${
+              activeLink("/upcoming")
+                ? "text-yellow-500"
+                : "hover:text-yellow-400 hover:bg-gray-400 px-5"
             }`}
           >
             Upcoming
           </Link>
         </li>
-        <li className="link relative">
+        <li className="link relative hover:text-yellow-400 hover:bg-gray-400 transition-all cursor-pointer">
           <Link
             href="/now-playing"
-            className={`py-2 relative ${
-              activeLink("/now-playing") ? "text-yellow-500" : ""
+            className={`block py-2 relative transition-all  ${
+              activeLink("/now-playing")
+                ? "text-yellow-500"
+                : "hover:text-yellow-400 hover:bg-gray-400 px-5"
             }`}
           >
             Now Playing
           </Link>
         </li>
-        <li className="link relative">
+        <li className="link relative hover:text-yellow-400 hover:bg-gray-400 transition-all cursor-pointer">
           <Link
-            href="#"
-            className={`py-2 relative ${
-              activeLink("/tv-series") ? "text-yellow-500" : ""
+            href="/tv-series"
+            className={`block py-2 relative transition-all  ${
+              activeLink("/tv-series")
+                ? "text-yellow-500"
+                : "hover:text-yellow-400 hover:bg-gray-400 px-5"
             }`}
           >
             TV Series
           </Link>
         </li>
-        <li className="w-full flex items-center bg-white rounded text-black overflow-hidden">
-          <input
-            type="search"
-            placeholder="Search movie by keyword..."
-            className="flex-1 text-sm px-4 py-2 outline-none "
-          />
-          <button className="flex items-center justify-center size-9 bg-gray-200 hover:bg-gray-300">
-            <IoSearchOutline />
-          </button>
+        <li className="w-full px-5 text-black">
+          <form
+            onSubmit={handleSearchMovie}
+            className="flex items-center w-full bg-white rounded overflow-hidden"
+          >
+            <input
+              type="text"
+              value={searchTerm}
+              onChange={handleChangeSearchTerm}
+              placeholder="Search movie by keyword..."
+              className="flex-1 text-sm px-4 py-2 outline-none "
+            />
+            <button
+              type="submit"
+              className="flex items-center justify-center size-9 bg-gray-200 hover:bg-gray-300"
+            >
+              <IoSearchOutline />
+            </button>
+          </form>
         </li>
       </ul>
     </div>

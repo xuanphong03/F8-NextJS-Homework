@@ -36,6 +36,8 @@ export default function SearchMovieList() {
       setIsLoading(true);
       const response = await movieApi.getSearchMoviesByKeyword(queryParams);
       const { results, page, total_pages } = response;
+      console.log("result:", results);
+
       const max_pages = total_pages < 10 ? total_pages : 10;
       setMovieList(results);
       setPagination({ page, total: max_pages });

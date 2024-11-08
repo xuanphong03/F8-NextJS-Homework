@@ -25,7 +25,8 @@ export default function DesktopNavbar() {
     setSearchTerm(e.target.value);
   };
 
-  const handleClickSearchButton = () => {
+  const handleSearchMovie = (e) => {
+    e.preventDefault();
     if (!searchTerm) return;
     setSearchTerm("");
     const queryParams = { page: 1, query: searchTerm };
@@ -115,7 +116,10 @@ export default function DesktopNavbar() {
           </Link>
         </li>
         <li className="relative xl:w-64 2xl:w-72" ref={suggestKeywordModalRef}>
-          <div className="flex items-center bg-white rounded text-black overflow-hidden">
+          <form
+            onSubmit={handleSearchMovie}
+            className="flex items-center bg-white rounded text-black overflow-hidden"
+          >
             <input
               type="text"
               value={searchTerm}
@@ -125,7 +129,7 @@ export default function DesktopNavbar() {
               className="flex-1 text-sm px-4 py-2 outline-none "
             />
             <button
-              onClick={handleClickSearchButton}
+              type="submit"
               className={`flex items-center justify-center size-9 bg-gray-200 ${
                 searchTerm
                   ? "hover:bg-gray-300 cursor-pointer"
@@ -134,7 +138,7 @@ export default function DesktopNavbar() {
             >
               <IoSearchOutline />
             </button>
-          </div>
+          </form>
           {focusingSearchBox && results.length > 0 && (
             <div className="absolute mt-2 top-full right-0 w-full rounded overflow-hidden">
               <SuggestKeywordList suggestList={results.slice(0, 10)} />

@@ -29,7 +29,7 @@ export default function CardMovie({
       <div>
         <h3 className="line-clamp-1">
           {title}{" "}
-          <span>({release_date && moment(release_date).format("YYYY")})</span>
+          {release_date && <span>({moment(release_date).format("YYYY")})</span>}
         </h3>
         <h4 className="text-sm text-gray-300 line-clamp-1">{original_title}</h4>
       </div>
