@@ -5,7 +5,7 @@ import { useCallback, useState } from "react";
 export default function RootNode({ data }) {
   const id = useNodeId();
   const { setNodes } = useReactFlow();
-  const [disabled, setDisabled] = useState(false);
+  const [disabled, setDisabled] = useState(true);
 
   const handleUpdateLabel = (label) => {
     setNodes((nodes) => {
@@ -32,7 +32,11 @@ export default function RootNode({ data }) {
       className="w-full h-full flex items-center justify-center outline-none"
       onDoubleClick={() => setDisabled(false)}
     >
-      <div>
+      <div
+        onDoubleClick={() => {
+          setDisabled(false);
+        }}
+      >
         <input
           id="text"
           name="text"
@@ -45,7 +49,9 @@ export default function RootNode({ data }) {
               setDisabled(true);
             }
           }}
-          className="w-full px-2 outline-none text-center bg-transparent select-none"
+          className={`w-full px-2 outline-none text-center bg-transparent select-none ${
+            disabled ? "pointer-events-none" : ""
+          }`}
         />
       </div>
       <Handle type="source" position={Position.Bottom} />

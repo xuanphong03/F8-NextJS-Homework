@@ -25,14 +25,16 @@ import AccessModifierModal from "./AccessModifierModal";
 import LeafNode from "./customs/LeafNode";
 import RootNode from "./customs/RootNode";
 import "./MindmapBoard.css";
+import { ROLE } from "@/app/constants/role";
 
 const nodeTypes = {
   "root-node": RootNode,
   "leaf-node": LeafNode,
 };
 
-function Mindmap({ mindmap }) {
+function Mindmap({ mindmap, role }) {
   const { user } = useUser();
+
   const reactFlowWrapper = useRef(null);
   const [nodes, setNodes, onNodesChange] = useNodesState([]);
   const [edges, setEdges, onEdgesChange] = useEdgesState([]);
@@ -132,7 +134,7 @@ function Mindmap({ mindmap }) {
 
   useEffect(() => {
     // Trường hợp mindmap được không được public mà user khác cố tình vào
-    if (!mindmap.public && user && user.sub !== mindmap.userSub) {
+    if (!mindmap.public && user && role !== ROLE.OWNER) {
       return notFound();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -226,10 +228,10 @@ function Mindmap({ mindmap }) {
   );
 }
 
-export default function MindmapBoard({ mindmap }) {
+export default function MindmapBoard({ mindmap, role }) {
   return (
     <ReactFlowProvider>
-      <Mindmap mindmap={mindmap} />
+      <Mindmap mindmap={mindmap} role={role} />
     </ReactFlowProvider>
   );
 }

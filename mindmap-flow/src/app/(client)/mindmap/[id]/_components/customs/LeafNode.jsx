@@ -5,7 +5,7 @@ import { useCallback, useEffect, useState } from "react";
 export default function LeafNode({ data, selected, isConnectable }) {
   const id = useNodeId();
   const { setNodes } = useReactFlow();
-  const [disabled, setDisabled] = useState(false);
+  const [disabled, setDisabled] = useState(true);
 
   const handleUpdateLabel = (label) => {
     setNodes((nodes) => {
@@ -46,7 +46,13 @@ export default function LeafNode({ data, selected, isConnectable }) {
         position={Position.Top}
         isConnectable={isConnectable}
       />
-      <div>
+      <div
+        className=""
+        onDoubleClick={() => {
+          console.log("click");
+          setDisabled(false);
+        }}
+      >
         <input
           id="text"
           name="text"
@@ -59,7 +65,9 @@ export default function LeafNode({ data, selected, isConnectable }) {
               setDisabled(true);
             }
           }}
-          className="w-full px-2 outline-none text-center bg-transparent select-none"
+          className={`w-full px-2 outline-none text-center bg-transparent select-none ${
+            disabled ? "pointer-events-none" : ""
+          }`}
         />
       </div>
       <Handle
