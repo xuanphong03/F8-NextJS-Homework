@@ -71,10 +71,10 @@ export default function TabletNavbar() {
         <li className="link relative cursor-pointer">
           <Link
             href="/new-movies"
-            className={`block py-2 relative transition-all  ${
+            className={`block px-5 py-2 relative transition-all ${
               activeLink("/new-movies")
                 ? "text-yellow-500"
-                : "hover:text-yellow-400 hover:bg-gray-400 px-5"
+                : "hover:text-yellow-400 hover:bg-gray-400"
             }`}
           >
             Newest
@@ -83,10 +83,10 @@ export default function TabletNavbar() {
         <li className="link relative hover:text-yellow-400 hover:bg-gray-400 transition-all cursor-pointer">
           <Link
             href="/popular"
-            className={`block py-2 relative transition-all  ${
+            className={`block px-5 py-2 relative transition-all ${
               activeLink("/popular")
                 ? "text-yellow-500"
-                : "hover:text-yellow-400 hover:bg-gray-400 px-5"
+                : "hover:text-yellow-400 hover:bg-gray-400"
             }`}
           >
             Popular
@@ -95,10 +95,10 @@ export default function TabletNavbar() {
         <li className="link relative hover:text-yellow-400 hover:bg-gray-400 transition-all cursor-pointer">
           <Link
             href="/upcoming"
-            className={`block py-2 relative transition-all  ${
+            className={`block px-5 py-2 relative transition-all ${
               activeLink("/upcoming")
                 ? "text-yellow-500"
-                : "hover:text-yellow-400 hover:bg-gray-400 px-5"
+                : "hover:text-yellow-400 hover:bg-gray-400"
             }`}
           >
             Upcoming
@@ -107,10 +107,10 @@ export default function TabletNavbar() {
         <li className="link relative hover:text-yellow-400 hover:bg-gray-400 transition-all cursor-pointer">
           <Link
             href="/now-playing"
-            className={`block py-2 relative transition-all  ${
+            className={`block px-5 py-2 relative transition-all ${
               activeLink("/now-playing")
                 ? "text-yellow-500"
-                : "hover:text-yellow-400 hover:bg-gray-400 px-5"
+                : "hover:text-yellow-400 hover:bg-gray-400"
             }`}
           >
             Now Playing
@@ -119,10 +119,10 @@ export default function TabletNavbar() {
         <li className="link relative hover:text-yellow-400 hover:bg-gray-400 transition-all cursor-pointer">
           <Link
             href="/tv-series"
-            className={`block py-2 relative transition-all  ${
+            className={`block px-5 py-2 relative transition-all ${
               activeLink("/tv-series")
                 ? "text-yellow-500"
-                : "hover:text-yellow-400 hover:bg-gray-400 px-5"
+                : "hover:text-yellow-400 hover:bg-gray-400"
             }`}
           >
             TV Series

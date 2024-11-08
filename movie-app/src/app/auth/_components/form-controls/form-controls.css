@@ -1,0 +1,39 @@
+.input-field,
+.password-field {
+  position: relative;
+}
+
+.input-field input,
+.password-field input {
+  font-size: 16px;
+  border: none;
+  outline: none;
+}
+
+.input-field .label-field,
+.password-field .label-field {
+  position: absolute;
+  inset: 0;
+  cursor: text;
+  font-size: 16px;
+}
+
+.input-field input:focus-within + .label-field,
+.input-field input:not(:placeholder-shown) + .label-field,
+.password-field input:focus-within + .label-field,
+.password-field input:not(:placeholder-shown) + .label-field {
+  font-size: 12px;
+  transform: translateY(-12px);
+}
+
+.password-field .toggle-password,
+.password-field .toggle-password {
+  display: none;
+}
+
+.password-field input:focus-within ~ .toggle-password,
+.password-field input:not(:placeholder-shown) ~ .toggle-password {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

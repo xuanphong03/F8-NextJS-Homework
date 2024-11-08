@@ -3,10 +3,10 @@ import movieApi from "@/app/service/movieApi";
 import { useDebounce } from "@uidotdev/usehooks";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
+import queryString from "query-string";
 import { useEffect, useRef, useState } from "react";
 import { IoSearchOutline } from "react-icons/io5";
 import SuggestKeywordList from "./SuggestKeywordList";
-import queryString from "query-string";
 
 export default function DesktopNavbar() {
   const router = useRouter();
@@ -144,6 +144,20 @@ export default function DesktopNavbar() {
               <SuggestKeywordList suggestList={results.slice(0, 10)} />
             </div>
           )}
+        </li>
+        <li className="flex items-center gap-2 lg:gap-4">
+          <Link
+            href="/auth/sign-in"
+            className="flex items-center justify-center h-9 px-4 py-1 border border-transparent rounded hover:bg-white hover:text-slate-700 transition-colors duration-300"
+          >
+            Sign In
+          </Link>
+          <Link
+            href="/auth/sign-up"
+            className="flex items-center justify-center h-9 px-4 py-1 border border-solid border-slate-400 rounded hover:bg-slate-400 hover:text-white transition-colors duration-300 "
+          >
+            Sign Up
+          </Link>
         </li>
       </ul>
     </nav>
