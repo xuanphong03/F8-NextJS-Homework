@@ -1,14 +1,13 @@
 import Link from "next/link";
-import React from "react";
+import MobileNavbar from "./MobileNavbar";
 import DesktopNavbar from "./DesktopNavbar";
-import TabletNavbar from "./TabletNavbar";
 import "./Header.css";
 
 export default function Header({ primary = false, secondary = false }) {
   return (
     <div
       className={`fixed top-0 left-0 right-0 z-50 text-white ${
-        primary ? "bg-gray-700" : ""
+        primary ? "bg-[#032541]" : ""
       } ${secondary ? "bg-transparent" : ""}`}
     >
       <div className="container mx-auto py-3 px-5 2xl:px-0">
@@ -23,7 +22,7 @@ export default function Header({ primary = false, secondary = false }) {
             Movie
           </Link>
           <DesktopNavbar />
-          <TabletNavbar />
+          <MobileNavbar />
         </div>
       </div>
     </div>

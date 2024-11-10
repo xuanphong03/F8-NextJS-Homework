@@ -24,3 +24,18 @@
 .link:hover div.sub-menu {
   display: block;
 }
+
+.nav-group-tablet input[name="movie"]:checked + label .arrow-icon,
+.nav-group-tablet input[name="tv-series"]:checked + label .arrow-icon {
+  rotate: 180deg;
+}
+
+.nav-group-tablet input[name="movie"] ~ .nav-menu,
+.nav-group-tablet input[name="tv-series"] ~ .nav-menu {
+  display: none;
+}
+
+.nav-group-tablet input[name="movie"]:checked ~ .nav-menu,
+.nav-group-tablet input[name="tv-series"]:checked ~ .nav-menu {
+  display: block;
+}

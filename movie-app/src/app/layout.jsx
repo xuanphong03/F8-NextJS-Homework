@@ -1,7 +1,7 @@
+import { getLocale } from "next-intl/server";
 import localFont from "next/font/local";
+import Providers from "./providers";
 import "./globals.css";
-import Header from "./_components/Header/Header";
-import { NextUIProvider } from "@nextui-org/react";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -26,13 +26,14 @@ export const metadata = {
   },
 };
 
-export default function RootLayout({ children }) {
+export default async function RootLayout({ children }) {
+  const locale = await getLocale();
   return (
-    <html lang="en">
+    <html lang={locale} suppressHydrationWarning={true}>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <NextUIProvider>{children}</NextUIProvider>
+        <Providers>{children}</Providers>
       </body>
     </html>
   );

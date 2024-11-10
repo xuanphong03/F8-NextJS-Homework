@@ -8,7 +8,7 @@ export default function SuggestKeywordList({ suggestList }) {
       {suggestList?.map((suggest) => (
         <li key={suggest.id}>
           <Link
-            href={`/search-movie?${queryString.stringify({
+            href={`/search?${queryString.stringify({
               page: 1,
               query: suggest.name,
             })}`}

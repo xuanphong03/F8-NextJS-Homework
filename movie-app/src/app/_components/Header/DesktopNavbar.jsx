@@ -1,25 +1,24 @@
 "use client";
-import movieApi from "@/app/service/movieApi";
-import { useDebounce } from "@uidotdev/usehooks";
 import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
+import { Tooltip } from "@nextui-org/react";
+import { useDebounce } from "@uidotdev/usehooks";
+import { useTranslations } from "next-intl";
+import { useRouter } from "next/navigation";
 import queryString from "query-string";
 import { useEffect, useRef, useState } from "react";
 import { IoSearchOutline } from "react-icons/io5";
+import SettingOptions from "./SettingOptions";
+import movieApi from "@/app/service/movieApi";
 import SuggestKeywordList from "./SuggestKeywordList";
 
 export default function DesktopNavbar() {
+  const t = useTranslations("Header");
   const router = useRouter();
-  const pathname = usePathname();
   const [searchTerm, setSearchTerm] = useState("");
   const [results, setResults] = useState([]);
   const [focusingSearchBox, setFocusingSearchBox] = useState(false);
   const debouncedSearchTerm = useDebounce(searchTerm, 300);
   const suggestKeywordModalRef = useRef(null);
-
-  const activeLink = (path) => {
-    return pathname.startsWith(path);
-  };
 
   const handleSearchChange = (e) => {
     setSearchTerm(e.target.value);
@@ -30,7 +29,7 @@ export default function DesktopNavbar() {
     if (!searchTerm) return;
     setSearchTerm("");
     const queryParams = { page: 1, query: searchTerm };
-    router.push(`/search-movie?${queryString.stringify(queryParams)}`);
+    router.push(`/search?${queryString.stringify(queryParams)}`);
   };
 
   const handleClickOutsideSearchBox = (event) => {
@@ -63,74 +62,111 @@ export default function DesktopNavbar() {
   }, []);
 
   return (
-    <nav className="text-white hidden lg:block">
-      <ul className="flex items-center lg:gap-8 ">
-        <li className="link relative">
-          <Link
-            href="/new-movies"
-            className={`py-2 relative ${
-              activeLink("/new-movies") ? "active-link" : "inactive-link"
-            }`}
-          >
-            Newest
-          </Link>
-        </li>
-        <li className="link relative">
-          <Link
-            href="/popular"
-            className={`py-2 relative ${
-              activeLink("/popular") ? "active-link" : "inactive-link"
-            }`}
-          >
-            Popular
-          </Link>
-        </li>
-        <li className="link relative">
-          <Link
-            href="/upcoming"
-            className={`py-2 relative ${
-              activeLink("/upcoming") ? "active-link" : "inactive-link"
-            }`}
-          >
-            Upcoming
-          </Link>
-        </li>
-        <li className="link relative">
-          <Link
-            href="/now-playing"
-            className={`py-2 relative ${
-              activeLink("/now-playing") ? "active-link" : "inactive-link"
-            }`}
-          >
-            Now Playing
-          </Link>
-        </li>
-        <li className="link relative">
-          <Link
-            href="/tv-series"
-            className={`py-2 relative ${
-              activeLink("/tv-series") ? "active-link" : "inactive-link"
-            }`}
-          >
-            TV Series
-          </Link>
-        </li>
-        <li className="relative xl:w-64 2xl:w-72" ref={suggestKeywordModalRef}>
+    <nav className="hidden lg:block">
+      <ul className="flex items-center gap-4 lg:gap-6">
+        <Tooltip
+          radius="sm"
+          placement="bottom-start"
+          content={
+            <ul className="dark:text-white py-2 min-w-40">
+              <li>
+                <Link
+                  href="/movie/popular"
+                  className={`flex py-2 relative text-sm px-3 dark:hover:bg-gray-700 hover:bg-gray-100 rounded`}
+                >
+                  {t("popular")}
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/movie/now-playing"
+                  className={`flex py-2 relative text-sm px-3 dark:hover:bg-gray-700 hover:bg-gray-100 rounded`}
+                >
+                  {t("now-playing")}
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/movie/upcoming"
+                  className={`flex py-2 relative text-sm px-3 dark:hover:bg-gray-700 hover:bg-gray-100 rounded`}
+                >
+                  {t("upcoming")}
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/movie/top-rated"
+                  className={`flex py-2 relative text-sm px-3 dark:hover:bg-gray-700 hover:bg-gray-100 rounded`}
+                >
+                  {t("top-rated")}
+                </Link>
+              </li>
+            </ul>
+          }
+          closeDelay={100}
+        >
+          {t("movie")}
+        </Tooltip>
+
+        <Tooltip
+          radius="sm"
+          placement="bottom-start"
+          content={
+            <ul className="dark:text-white py-2 min-w-40">
+              <li>
+                <Link
+                  href="/tv/popular"
+                  className={`flex py-2 relative text-sm px-3 dark:hover:bg-gray-700 hover:bg-gray-100 rounded`}
+                >
+                  {t("popular")}
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/tv/airing-today"
+                  className={`flex py-2 relative text-sm px-3 dark:hover:bg-gray-700 hover:bg-gray-100 rounded`}
+                >
+                  {t("airing-today")}
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/tv/on-the-air"
+                  className={`flex py-2 relative text-sm px-3 dark:hover:bg-gray-700 hover:bg-gray-100 rounded`}
+                >
+                  {t("on-tv")}
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/tv/top-rated"
+                  className={`flex py-2 relative text-sm px-3 dark:hover:bg-gray-700 hover:bg-gray-100 rounded`}
+                >
+                  {t("top-rated")}
+                </Link>
+              </li>
+            </ul>
+          }
+          closeDelay={100}
+        >
+          {t("tv-series")}
+        </Tooltip>
+        <li className="relative xl:w-64" ref={suggestKeywordModalRef}>
           <form
             onSubmit={handleSearchMovie}
-            className="flex items-center bg-white rounded text-black overflow-hidden"
+            className="flex items-center text-black dark:text-white rounded overflow-hidden"
           >
             <input
               type="text"
               value={searchTerm}
               onChange={handleSearchChange}
               onFocus={() => setFocusingSearchBox(true)}
-              placeholder="Search movie by keyword..."
+              placeholder={t("search-placeholder")}
               className="flex-1 text-sm px-4 py-2 outline-none "
             />
             <button
               type="submit"
-              className={`flex items-center justify-center size-9 bg-gray-200 ${
+              className={`flex items-center justify-center size-9 bg-gray-200 dark:bg-blue-500 ${
                 searchTerm
                   ? "hover:bg-gray-300 cursor-pointer"
                   : "cursor-not-allowed"
@@ -145,19 +181,14 @@ export default function DesktopNavbar() {
             </div>
           )}
         </li>
-        <li className="flex items-center gap-2 lg:gap-4">
+        <li className="relative flex items-center gap-2 lg:gap-4">
           <Link
             href="/auth/sign-in"
-            className="flex items-center justify-center h-9 px-4 py-1 border border-transparent rounded hover:bg-white hover:text-slate-700 transition-colors duration-300"
+            className="flex items-center justify-center h-9 px-4 py-1 border border-solid border-slate-400 rounded hover:bg-slate-400 hover:text-white transition-colors duration-300"
           >
-            Sign In
+            {t("sign-in-button")}
           </Link>
-          <Link
-            href="/auth/sign-up"
-            className="flex items-center justify-center h-9 px-4 py-1 border border-solid border-slate-400 rounded hover:bg-slate-400 hover:text-white transition-colors duration-300 "
-          >
-            Sign Up
-          </Link>
+          <SettingOptions />
         </li>
       </ul>
     </nav>

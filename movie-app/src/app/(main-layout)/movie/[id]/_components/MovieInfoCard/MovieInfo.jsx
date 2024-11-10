@@ -4,12 +4,12 @@ import moment from "moment";
 import Image from "next/image";
 import { useState } from "react";
 import { toast } from "react-toastify";
-import SectionHeading from "../Heading/SectionHeading";
-import TrailerMovie from "../TrailerMovie/TrailerMovie";
 import { FaStar } from "react-icons/fa";
 import { useTranslations } from "next-intl";
+import SectionHeading from "@/app/_components/Heading/SectionHeading";
+import TrailerMovie from "@/app/_components/TrailerMovie/TrailerMovie";
 
-export default function CardDetailMovie({ movie }) {
+export default function MovieInfo({ movie }) {
   const t = useTranslations("Movie");
   const [watchingTrailer, setWatchingTrailer] = useState(false);
   const moviePoster = movie.poster_path
@@ -46,9 +46,11 @@ export default function CardDetailMovie({ movie }) {
           </div>
           <div className="flex flex-col gap-2 lg:gap-5 flex-1 text-sm md:text-base">
             <div>
-              <h2 className="text-xl lg:text-2xl">
+              <h2 className="text-xl lg:font-2xl xl:text-3xl font-bold">
                 {movie.title}{" "}
-                <span>({moment(movie.release_date).format("YYYY")})</span>
+                {movie.release_date && (
+                  <span>({moment(movie.release_date).format("YYYY")})</span>
+                )}
               </h2>
               <h3 className="">{movie.original_title}</h3>
             </div>
