@@ -18,7 +18,11 @@ export default function CommentItem({ comment }) {
           <Image
             loading="lazy"
             alt="thumbnail movie"
-            src={`${process.env.TMDB_BASE_URL_IMAGE}/original${comment.author_details.avatar_path}`}
+            src={
+              comment?.author_details?.avatar_path
+                ? `${process.env.TMDB_BASE_URL_IMAGE}/original${comment.author_details.avatar_path}`
+                : "/images/noImage.jpg"
+            }
             width={40}
             height={40}
             className="size-6 sm:size-8 md:size-10 object-cover rounded-full flex-shrink-0"
