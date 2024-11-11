@@ -28,25 +28,6 @@
     "tv-series-section": "Phim truyền hình",
     "search-section": "Từ khóa tìm kiếm"
   },
-  "DetailMoviePage": {
-    "runtime": "Thời lượng",
-    "release": "Phát hành",
-    "genre": "Thể loại",
-    "country": "Quốc giá",
-    "rating": "Đánh giá",
-    "voted": "lượt",
-    "minutes": "phút",
-    "watch-trailer": "Xem trailer",
-    "watch-now": "Xem ngay",
-    "overview": "Tổng quan",
-    "comments": "Bình luận",
-    "like": "Thích",
-    "reply": "Phản hồi",
-    "recommendation": "Phim liên quan",
-    "please": "Vui lòng",
-    "sign-in": "đăng nhập",
-    "to-comment": "để bình luận"
-  },
   "Movie": {
     "popular": "Phim lẻ phổ biến",
     "now-playing": "Phim lẻ đang chiếu",

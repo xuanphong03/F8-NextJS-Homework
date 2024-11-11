@@ -1,7 +1,8 @@
 "use client";
+
+import Link from "next/link";
 import SectionHeading from "@/app/_components/Heading/SectionHeading";
 import { useTranslations } from "next-intl";
-import Link from "next/link";
 import { Fragment } from "react";
 import MovieCard from "./MovieCard";
 
@@ -15,7 +16,7 @@ export default function WeekTrendingTV({ tvList }) {
       <div className="flex flex-col gap-2">
         {tvList?.slice(0, 5).map((tv) => (
           <Fragment key={tv.id}>
-            <Link href={`/movies/${tv.id}`}>
+            <Link href={`/tv/${tv.id}`}>
               <MovieCard
                 title={tv.name}
                 original_title={tv.original_name}

@@ -154,7 +154,7 @@ export default function DesktopNavbar() {
         <li className="relative xl:w-64" ref={suggestKeywordModalRef}>
           <form
             onSubmit={handleSearchMovie}
-            className="flex items-center text-black dark:text-white rounded overflow-hidden"
+            className="flex items-center text-black rounded overflow-hidden"
           >
             <input
               type="text"
@@ -162,11 +162,11 @@ export default function DesktopNavbar() {
               onChange={handleSearchChange}
               onFocus={() => setFocusingSearchBox(true)}
               placeholder={t("search-placeholder")}
-              className="flex-1 text-sm px-4 py-2 outline-none "
+              className="flex-1 text-sm px-4 py-2 outline-none dark:bg-white"
             />
             <button
               type="submit"
-              className={`flex items-center justify-center size-9 bg-gray-200 dark:bg-blue-500 ${
+              className={`dark:text-white flex items-center justify-center size-9 bg-gray-200 dark:bg-blue-500 ${
                 searchTerm
                   ? "hover:bg-gray-300 cursor-pointer"
                   : "cursor-not-allowed"
