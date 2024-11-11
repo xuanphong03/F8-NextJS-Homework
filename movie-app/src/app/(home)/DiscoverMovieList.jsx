@@ -21,8 +21,10 @@ import TrailerMovie from "../_components/TrailerMovie/TrailerMovie";
 import movieApi from "../service/movieApi";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useTranslations } from "next-intl";
 
 export default function DiscoverMovieList({ movieList }) {
+  const t = useTranslations("HomePage");
   const [selectedMovie, setSelectedMovie] = useState(null);
   const [watchingTrailer, setWatchingTrailer] = useState(false);
 
@@ -101,8 +103,10 @@ export default function DiscoverMovieList({ movieList }) {
                       </h1>
                       <div className="flex items-center gap-2 2xl:gap-4">
                         <p>
-                          Rating: {movie.vote_average?.toFixed(1)}{" "}
-                          <span>({movie.vote_count} vote)</span>
+                          {t("rating")}: {movie.vote_average?.toFixed(1)}{" "}
+                          <span>
+                            ({movie.vote_count} {t("voted")})
+                          </span>
                         </p>
                         <span className="size-1 rounded-full bg-white"></span>
                         <span>{moment(movie.release_date).format("YYYY")}</span>
@@ -117,13 +121,13 @@ export default function DiscoverMovieList({ movieList }) {
                           onClick={() => handleClickWatchTrailer(movie.id)}
                           className="px-6 py-2 xl:px-8 xl:py-3 min-w-36 rounded-lg border border-solid border-gray-200 bg-transparent text-white font-medium hover:bg-gray-50 hover:border-gray-50 hover:text-black transition-all"
                         >
-                          Watch trailer
+                          {t("watch-trailer")}
                         </button>
                         <button
                           onClick={handleClickWatchNow}
                           className="px-6 py-2 xl:px-8 xl:py-3 min-w-36 rounded-lg border border-solid border-yellow-400 bg-yellow-400 text-black font-medium hover:bg-yellow-500 hover:border-yellow-500 transition-all"
                         >
-                          Watch now
+                          {t("watch-now")}
                         </button>
                       </div>
                     </div>

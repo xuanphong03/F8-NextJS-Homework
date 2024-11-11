@@ -79,5 +79,11 @@
     "sign-in": "Sign in",
     "to-comment": "to comment",
     "upcoming": "Upcoming"
+  },
+  "HomePage": {
+    "watch-now": "Watch now",
+    "watch-trailer": "Watch trailer",
+    "rating": "Rating",
+    "voted": "voted"
   }
 }

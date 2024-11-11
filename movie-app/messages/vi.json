@@ -1,9 +1,9 @@
 {
   "Header": {
-    "top-rated-movies": "Được đánh giá cao",
-    "popular-movies": "Phổ biến",
-    "upcoming-movies": "Sắp chiếu",
-    "now-playing-movies": "Đang chiếu",
+    "top-rated": "Được đánh giá cao",
+    "popular": "Phổ biến",
+    "upcoming": "Sắp chiếu",
+    "now-playing": "Đang chiếu",
     "airing-today": "Chiếu hôm nay",
     "on-tv": "Sắp chiếu",
     "search-placeholder": "Tìm kiếm phim...",
@@ -13,7 +13,7 @@
     "theme-system": "hệ thống",
     "theme-dark": "tối",
     "theme-light": "sáng",
-    "movie": "Movie",
+    "movie": "Phim lẻ",
     "tv-series": "Phim bộ"
   },
   "Sidebar": {
@@ -79,5 +79,11 @@
     "sign-in": "đăng nhập",
     "to-comment": "để bình luận",
     "upcoming": "Sắp chiếu"
+  },
+  "HomePage": {
+    "watch-now": "Xem ngay",
+    "watch-trailer": "Xem trailer",
+    "rating": "Đánh giá",
+    "voted": "lượt"
   }
 }
