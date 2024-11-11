@@ -8,17 +8,17 @@ export default function CardMovie({
   poster_path,
   release_date,
 }) {
-  const moviePoster = poster_path
-    ? `${process.env.TMDB_BASE_URL_IMAGE}/original/${poster_path}`
-    : "https://st4.depositphotos.com/14953852/24787/v/450/depositphotos_247872612-stock-illustration-no-image-available-icon-vector.jpg";
-
   return (
     <article className="text-light dark:text-dark h-full flex flex-col gap-1 cursor-pointer overflow-hidden">
       <div className="flex-1 w-full relative group overflow-hidden rounded-lg ">
         <Image
           loading="lazy"
           alt="thumbnail movie"
-          src={moviePoster}
+          src={
+            poster_path
+              ? `${process.env.TMDB_BASE_URL_IMAGE}/original${poster_path}`
+              : "/images/noImage.jpg"
+          }
           width={160}
           height={220}
           className="w-full h-full object-cover rounded-lg flex-shrink-0 group-hover:scale-125 transition-all"

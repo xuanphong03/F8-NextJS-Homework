@@ -5,9 +5,6 @@ import { FaStar } from "react-icons/fa";
 
 export default function CardItem({ season }) {
   const t = useTranslations("TvSeries");
-  const tvPoster = season.poster_path
-    ? `${process.env.TMDB_BASE_URL_IMAGE}/original/${season.poster_path}`
-    : "https://st4.depositphotos.com/14953852/24787/v/450/depositphotos_247872612-stock-illustration-no-image-available-icon-vector.jpg";
 
   return (
     <div className="flex w-full h-full gap-4 p-2 rounded-md bg-white dark:bg-slate-500 shadow-xl">
@@ -17,7 +14,11 @@ export default function CardItem({ season }) {
           alt="poster movie"
           width={100}
           height={150}
-          src={tvPoster}
+          src={
+            season?.poster_path
+              ? `${process.env.TMDB_BASE_URL_IMAGE}/original${season.poster_path}`
+              : "/images/noImage.jpg"
+          }
           className="w-full h-auto object-cover rounded-lg flex-shrink-0"
         />
       </div>

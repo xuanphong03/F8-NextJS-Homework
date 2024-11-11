@@ -89,7 +89,7 @@ export default function DiscoverMovieList({ movieList }) {
                 <SwiperSlide key={movie.id} className="px-5 2xl:px-0">
                   <Image
                     alt={movie.original_title}
-                    src={`${process.env.TMDB_BASE_URL_IMAGE}/original/${movie.backdrop_path}`}
+                    src={`${process.env.TMDB_BASE_URL_IMAGE}/original${movie.backdrop_path}`}
                     width={1980}
                     height={1024}
                     className="absolute inset-0 w-screen h-screen object-cover"

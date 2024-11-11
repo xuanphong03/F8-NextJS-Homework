@@ -3,10 +3,10 @@ import UpcomingMovieList from "./UpcomingMovieList";
 import SectionHeading from "@/app/_components/Heading/SectionHeading";
 
 export const metadata = {
-  title: "Upcoming - New Movie",
+  title: "Upcoming Movie - New Movie",
   description: "New Movie - Xem phim online | Phim mới | Phim hay - Vietsub",
   openGraph: {
-    title: "Upcoming - New Movie",
+    title: "Upcoming Movie - New Movie",
     description: "New Movie - Xem phim online | Phim mới | Phim hay - Vietsub",
   },
 };

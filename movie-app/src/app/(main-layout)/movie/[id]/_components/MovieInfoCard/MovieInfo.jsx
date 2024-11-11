@@ -37,7 +37,7 @@ export default function MovieInfo({ movie }) {
               alt="poster movie"
               src={
                 movie?.poster_path
-                  ? `${process.env.TMDB_BASE_URL_IMAGE}/original/${movie.poster_path}`
+                  ? `${process.env.TMDB_BASE_URL_IMAGE}/original${movie.poster_path}`
                   : "/images/noImage.jpg"
               }
               width={220}

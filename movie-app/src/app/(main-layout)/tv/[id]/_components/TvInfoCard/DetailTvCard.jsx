@@ -38,7 +38,7 @@ export default function DetailTvCard({ detail_tv }) {
               alt="poster movie"
               src={
                 detail_tv?.poster_path
-                  ? `${process.env.TMDB_BASE_URL_IMAGE}/original/${detail_tv.poster_path}`
+                  ? `${process.env.TMDB_BASE_URL_IMAGE}/original${detail_tv.poster_path}`
                   : "/images/noImage.jpg"
               }
               width={220}

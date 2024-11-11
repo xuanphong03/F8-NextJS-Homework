@@ -3,10 +3,10 @@ import { useTranslations } from "next-intl";
 import OnTheAirTVSeries from "./OnTheAirTVSeries";
 
 export const metadata = {
-  title: "Popular - New Movie",
+  title: "On The Air TV Series - New Movie",
   description: "New Movie - Xem phim online | Phim mới | Phim hay - Vietsub",
   openGraph: {
-    title: "Popular - New Movie",
+    title: "On The Air TV Series - New Movie",
     description: "New Movie - Xem phim online | Phim mới | Phim hay - Vietsub",
   },
 };

@@ -3,10 +3,10 @@ import { useTranslations } from "next-intl";
 import TopRatedMovieList from "./TopRatedMovieList";
 
 export const metadata = {
-  title: "Popular - New Movie",
+  title: "Top Rated Movie - New Movie",
   description: "New Movie - Xem phim online | Phim mới | Phim hay - Vietsub",
   openGraph: {
-    title: "Popular - New Movie",
+    title: "Top Rated Movie - New Movie",
     description: "New Movie - Xem phim online | Phim mới | Phim hay - Vietsub",
   },
 };

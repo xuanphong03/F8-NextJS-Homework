@@ -3,10 +3,10 @@ import { useTranslations } from "next-intl";
 import AiringTodayTVSeries from "./AiringTodayTVSeries";
 
 export const metadata = {
-  title: "Popular - New Movie",
+  title: "Airing Today TV Series - New Movie",
   description: "New Movie - Xem phim online | Phim mới | Phim hay - Vietsub",
   openGraph: {
-    title: "Popular - New Movie",
+    title: "Airing Today TV Series - New Movie",
     description: "New Movie - Xem phim online | Phim mới | Phim hay - Vietsub",
   },
 };

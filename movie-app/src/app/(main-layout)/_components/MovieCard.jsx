@@ -15,7 +15,7 @@ export default function MovieCard({
     <article className="group flex gap-2 cursor-pointer hover:bg-dark dark:hover:bg-slate-400 p-2 rounded transition-colors">
       <Image
         alt="thumbnail movie"
-        src={`${process.env.TMDB_BASE_URL_IMAGE}/original/${poster_path}`}
+        src={`${process.env.TMDB_BASE_URL_IMAGE}/original${poster_path}`}
         width={64}
         height={64}
         className="size-16 object-cover rounded flex-shrink-0"

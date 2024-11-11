@@ -4,10 +4,10 @@ import SectionHeading from "@/app/_components/Heading/SectionHeading";
 import { useTranslations } from "next-intl";
 
 export const metadata = {
-  title: "Now Playing - New Movie",
+  title: "Now Playing Movie - New Movie",
   description: "New Movie - Xem phim online | Phim mới | Phim hay - Vietsub",
   openGraph: {
-    title: "Now Playing - New Movie",
+    title: "Now Playing Movie - New Movie",
     description: "New Movie - Xem phim online | Phim mới | Phim hay - Vietsub",
   },
 };
