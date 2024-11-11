@@ -3,7 +3,7 @@ import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { FaStar } from "react-icons/fa";
 
-export default function CardItem({ season }) {
+export default function SeasonItem({ season }) {
   const t = useTranslations("TvSeries");
 
   return (

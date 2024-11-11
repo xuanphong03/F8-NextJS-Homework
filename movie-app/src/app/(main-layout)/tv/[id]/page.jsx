@@ -2,6 +2,7 @@ import moment from "moment";
 import { notFound } from "next/navigation";
 import RecommendationTvList from "./_components/Recommendation/RecommendationMovieList";
 import DetailTvCard from "./_components/TvInfoCard/DetailTvCard";
+import ReviewList from "./_components/Reviews/ReviewList";
 
 export const generateMetadata = async ({ params }) => {
   const { id } = params;
@@ -43,7 +44,7 @@ const getDetailTv = async (id) => {
   } catch (error) {}
 };
 
-const geCommentList = async (id) => {
+const getReviewList = async (id) => {
   try {
     const response = await fetch(
       `${process.env.TMDB_API_SERVER}/tv/${id}/reviews?language=en-US&page=1`,
@@ -86,12 +87,12 @@ export default async function DetailTvPage({ params }) {
   const { results: recommendationTvList } = await getRecommendationMovieList(
     id
   );
-  const { results: commentList } = await geCommentList(id);
+  const { results: reviewList } = await getReviewList(id);
 
   return (
     <div className="flex flex-col gap-10 sm:gap-12 md:gap-14 lg:gap-16 xl:gap-20">
       <DetailTvCard detail_tv={detailTv} />
-      {/* <CommentList commentList={commentList} /> */}
+      <ReviewList reviewList={reviewList} />
       {recommendationTvList?.length > 0 && (
         <RecommendationTvList tvList={recommendationTvList} />
       )}

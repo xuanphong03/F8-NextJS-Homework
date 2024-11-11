@@ -1,4 +1,3 @@
-import CardItem from "./CardItem";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -12,9 +11,10 @@ import {
   Navigation,
   Pagination,
 } from "swiper/modules";
-import "./CardList.css";
+import "./SeasonList.css";
+import SeasonItem from "./SeasonItem";
 
-export default function CardList({ seasons }) {
+export default function SeasonList({ seasons }) {
   return (
     <Swiper
       modules={[Autoplay, Navigation, Pagination, A11y, EffectFade]}
@@ -44,7 +44,7 @@ export default function CardList({ seasons }) {
             key={season.id}
             className="bg-transparent border-none p-2"
           >
-            <CardItem season={season} />
+            <SeasonItem season={season} />
           </SwiperSlide>
         );
       })}
