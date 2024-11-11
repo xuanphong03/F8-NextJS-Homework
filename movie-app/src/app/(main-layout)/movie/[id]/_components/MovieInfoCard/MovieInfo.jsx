@@ -12,9 +12,6 @@ import TrailerMovie from "@/app/_components/TrailerMovie/TrailerMovie";
 export default function MovieInfo({ movie }) {
   const t = useTranslations("Movie");
   const [watchingTrailer, setWatchingTrailer] = useState(false);
-  const moviePoster = movie.poster_path
-    ? `${process.env.TMDB_BASE_URL_IMAGE}/original/${movie.poster_path}`
-    : "https://st4.depositphotos.com/14953852/24787/v/450/depositphotos_247872612-stock-illustration-no-image-available-icon-vector.jpg";
 
   const handleToggleWatchTrailer = () => {
     setWatchingTrailer(!watchingTrailer);
@@ -38,7 +35,11 @@ export default function MovieInfo({ movie }) {
             <Image
               loading="lazy"
               alt="poster movie"
-              src={moviePoster}
+              src={
+                movie?.poster_path
+                  ? `${process.env.TMDB_BASE_URL_IMAGE}/original/${movie.poster_path}`
+                  : "/images/noImage.jpg"
+              }
               width={220}
               height={220}
               className="w-full h-auto object-cover rounded-lg flex-shrink-0"

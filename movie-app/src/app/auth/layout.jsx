@@ -7,7 +7,7 @@ export default function AuthLayout({ children }) {
       <div className="absolute inset-0 bg-black">
         <Image
           alt="background layout"
-          src="/images/background_auth_layout.jpg"
+          src="/images/backgroundAuthLayout.jpg"
           className="w-full h-full object-cover"
           width={1980}
           height={1024}

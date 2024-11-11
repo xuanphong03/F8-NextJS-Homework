@@ -13,9 +13,6 @@ import CardList from "./CardList";
 export default function DetailTvCard({ detail_tv }) {
   const t = useTranslations("TvSeries");
   const [watchingTrailer, setWatchingTrailer] = useState(false);
-  const moviePoster = detail_tv?.poster_path
-    ? `${process.env.TMDB_BASE_URL_IMAGE}/original/${detail_tv?.poster_path}`
-    : "https://st4.depositphotos.com/14953852/24787/v/450/depositphotos_247872612-stock-illustration-no-image-available-icon-vector.jpg";
 
   const handleToggleWatchTrailer = () => {
     setWatchingTrailer(!watchingTrailer);
@@ -39,7 +36,11 @@ export default function DetailTvCard({ detail_tv }) {
             <Image
               loading="lazy"
               alt="poster movie"
-              src={moviePoster}
+              src={
+                detail_tv?.poster_path
+                  ? `${process.env.TMDB_BASE_URL_IMAGE}/original/${detail_tv.poster_path}`
+                  : "/images/noImage.jpg"
+              }
               width={220}
               height={220}
               className="w-full h-auto object-cover rounded-lg flex-shrink-0"
