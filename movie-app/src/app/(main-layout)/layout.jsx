@@ -1,8 +1,8 @@
-import SideBar from "./_components/SideBar";
-import Header from "../_components/Header/Header";
 import Footer from "../_components/Footer/Footer";
+import Header from "../_components/Header/Header";
+import SideBar from "./_components/Sidebar/Sidebar";
 
-export default async function MoviesLayout({ children }) {
+export default async function MainLayout({ children }) {
   return (
     <>
       <Header primary />

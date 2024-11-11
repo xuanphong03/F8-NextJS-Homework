@@ -1,8 +1,5 @@
 import moment from "moment";
 import { notFound } from "next/navigation";
-import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import CommentList from "./_components/Comment/CommentList";
 import RecommendationTvList from "./_components/Recommendation/RecommendationMovieList";
 import DetailTvCard from "./_components/TvInfoCard/DetailTvCard";
 
@@ -78,7 +75,7 @@ const getRecommendationMovieList = async (id) => {
   } catch (error) {}
 };
 
-export default async function DetailMoviePage({ params }) {
+export default async function DetailTvPage({ params }) {
   const { id } = params;
   const detailTv = await getDetailTv(id);
 
@@ -94,16 +91,10 @@ export default async function DetailMoviePage({ params }) {
   return (
     <div className="flex flex-col gap-10 sm:gap-12 md:gap-14 lg:gap-16 xl:gap-20">
       <DetailTvCard detail_tv={detailTv} />
-      <CommentList commentList={commentList} />
+      {/* <CommentList commentList={commentList} /> */}
       {recommendationTvList?.length > 0 && (
         <RecommendationTvList tvList={recommendationTvList} />
       )}
-      <ToastContainer
-        limit={2}
-        closeOnClick
-        autoClose={2000}
-        position="bottom-right"
-      />
     </div>
   );
 }

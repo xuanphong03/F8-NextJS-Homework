@@ -1,5 +1,3 @@
-"use client";
-
 import Link from "next/link";
 import CardMovie from "@/app/_components/Card/CardMovie";
 import SectionHeading from "@/app/_components/Heading/SectionHeading";

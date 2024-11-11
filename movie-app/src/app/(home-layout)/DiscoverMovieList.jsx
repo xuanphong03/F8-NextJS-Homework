@@ -20,7 +20,6 @@ import { useState } from "react";
 import TrailerMovie from "../_components/TrailerMovie/TrailerMovie";
 import movieApi from "../service/movieApi";
 import { toast, ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 import { useTranslations } from "next-intl";
 
 export default function DiscoverMovieList({ movieList }) {

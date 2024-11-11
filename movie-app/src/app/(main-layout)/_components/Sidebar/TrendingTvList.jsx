@@ -4,9 +4,9 @@ import Link from "next/link";
 import SectionHeading from "@/app/_components/Heading/SectionHeading";
 import { useTranslations } from "next-intl";
 import { Fragment } from "react";
-import MovieCard from "./MovieCard";
+import CardItem from "../Card/CardItem";
 
-export default function WeekTrendingTV({ tvList }) {
+export default function TrendingTvList({ tvList }) {
   const t = useTranslations("Sidebar");
   return (
     <div>
@@ -17,7 +17,7 @@ export default function WeekTrendingTV({ tvList }) {
         {tvList?.slice(0, 5).map((tv) => (
           <Fragment key={tv.id}>
             <Link href={`/tv/${tv.id}`}>
-              <MovieCard
+              <CardItem
                 title={tv.name}
                 original_title={tv.original_name}
                 poster_path={tv.poster_path}

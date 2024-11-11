@@ -68,7 +68,7 @@ export default function PopularMovieList() {
         {!isLoading &&
           movieList.map((movie) => (
             <Link
-              href={`/movie/${movie.id}`}
+              href={`/movie/detail/${movie.id}`}
               key={movie.id}
               className="col-span-6 sm:col-span-4 md:col-span-3 lg:col-span-2"
             >

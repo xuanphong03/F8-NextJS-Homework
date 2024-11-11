@@ -3,7 +3,7 @@ import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { FaStar } from "react-icons/fa";
 
-export default function MovieCard({
+export default function CardItem({
   title,
   original_title,
   poster_path,
@@ -13,19 +13,20 @@ export default function MovieCard({
   const t = useTranslations("Movie");
   return (
     <article className="group flex gap-2 cursor-pointer hover:bg-dark dark:hover:bg-slate-400 p-2 rounded transition-colors">
-      <Image
-        alt="thumbnail movie"
-        src={
-          poster_path
-            ? `${process.env.TMDB_BASE_URL_IMAGE}/original${poster_path}`
-            : "/images/noImage.jpg"
-        }
-        width={64}
-        height={64}
-        className="size-16 object-cover rounded flex-shrink-0"
-        priority
-      />
-
+      <div className="size-16">
+        <Image
+          alt="thumbnail movie"
+          src={
+            poster_path
+              ? `${process.env.TMDB_BASE_URL_IMAGE}/original${poster_path}`
+              : "/images/noImage.jpg"
+          }
+          width={64}
+          height={64}
+          className="w-full h-full object-cover rounded flex-shrink-0"
+          priority
+        />
+      </div>
       <div>
         <h3 className="line-clamp-1 text-light group-hover:text-dark dark:text-dark">
           {title}{" "}

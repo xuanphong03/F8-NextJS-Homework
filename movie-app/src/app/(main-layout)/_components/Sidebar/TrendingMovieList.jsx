@@ -1,14 +1,11 @@
 "use client";
-import moment from "moment";
-import Image from "next/image";
+import SectionHeading from "@/app/_components/Heading/SectionHeading";
+import { useTranslations } from "next-intl";
 import Link from "next/link";
 import { Fragment } from "react";
-import SectionHeading from "@/app/_components/Heading/SectionHeading";
-import { FaStar } from "react-icons/fa";
-import { useTranslations } from "next-intl";
-import MovieCard from "./MovieCard";
+import CardItem from "../Card/CardItem";
 
-export default function WeekTrendingMovie({ movieList }) {
+export default function TrendingMovieList({ movieList }) {
   const t = useTranslations("Sidebar");
 
   return (
@@ -20,7 +17,7 @@ export default function WeekTrendingMovie({ movieList }) {
         {movieList?.slice(0, 5).map((movie) => (
           <Fragment key={movie.id}>
             <Link href={`/movie/${movie.id}`}>
-              <MovieCard
+              <CardItem
                 title={movie.title}
                 original_title={movie.original_title}
                 poster_path={movie.poster_path}

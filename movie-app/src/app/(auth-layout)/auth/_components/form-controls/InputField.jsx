@@ -1,4 +1,4 @@
-import "./form-controls.css";
+import "./FormControls.css";
 
 export default function InputField({ id, label, register, errorMessage }) {
   return (

@@ -1,4 +1,3 @@
-import { useState } from "react";
 import CardItem from "./CardItem";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";

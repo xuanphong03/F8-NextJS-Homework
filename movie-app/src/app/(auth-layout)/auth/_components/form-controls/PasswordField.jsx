@@ -1,7 +1,7 @@
 "use client";
-import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { useState } from "react";
-import "./form-controls.css";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
+import "./FormControls.css";
 
 export default function PasswordField({ id, label, register, errorMessage }) {
   const [showPassword, setShowPassword] = useState(false);

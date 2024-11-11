@@ -1,5 +1,5 @@
-import WeekTrendingMovie from "./WeekTrendingMovie";
-import WeekTrendingTV from "./WeekTrendingTV";
+import TrendingMovieList from "./TrendingMovieList";
+import TrendingTvList from "./TrendingTvList";
 
 const getTrendingMovies = async (time_window) => {
   try {
@@ -39,8 +39,8 @@ export default async function SideBar() {
 
   return (
     <aside className="flex flex-col gap-10">
-      <WeekTrendingMovie movieList={trendingMovieList} />
-      <WeekTrendingTV tvList={trendingTVList} />
+      <TrendingMovieList movieList={trendingMovieList} />
+      <TrendingTvList tvList={trendingTVList} />
     </aside>
   );
 }
